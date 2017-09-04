@@ -1,0 +1,12 @@
+{
+  'extends': [ 'eslint:recommended' ],
+  'parser': 'babel-eslint',
+  'rules': {
+    'comma-dangle': 0,
+    'no-console': 0
+  },
+  'env': {
+    'node': true,
+    'es6': true
+  }
+}
