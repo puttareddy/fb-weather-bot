@@ -4,7 +4,7 @@ This chatbot uses Facebook Messenger API + Wit.ai + Open Weather Map.
 
 ## Architecture
 
-![Story](./architecture.jpeg)
+![Story](./architecture.png)
 
 ## Build
 
