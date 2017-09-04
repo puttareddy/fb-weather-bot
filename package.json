@@ -10,7 +10,8 @@
     "lint": "eslint src",
     "build:babel": "babel src -d dist",
     "build": "npm-run-all clean lint build:babel",
-    "start": "node ."
+    "start": "node .", 
+    "execute": "npm run build & npm run start"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
