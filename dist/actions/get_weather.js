@@ -21,6 +21,7 @@ exports.default = (() => {
     console.log('suggesed location ------------', entities.location);
 
     delete context.missingLocation;
+    delete context.weather;
     let weather;
     if (!entities.location) {
       const suggestedLocation = entities.location.find(function (location) {
@@ -28,14 +29,13 @@ exports.default = (() => {
       });
       const rawWeather = yield (0, _weather.fetchWeather)(suggestedLocation.value);
       weather = formatWeather(rawWeather);
+      context.weather = weather;
     } else {
       context.missingLocation = true;
       //delete context.forecastResult;
     }
 
-    return Object.assign({
-      weather
-    }, context);
+    return Object.assign({}, context);
   });
 
   function getWeather(_x) {

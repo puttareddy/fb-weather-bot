@@ -12,18 +12,20 @@ export default async function getWeather({ context, entities }) {
   console.log('suggesed location ------------', entities.location)
 
   delete context.missingLocation;
+  delete context.weather;
   let weather;
   if (!entities.location) {
     const suggestedLocation = entities.location.find(location => location.suggested);
     const rawWeather = await fetchWeather(suggestedLocation.value);
     weather = formatWeather(rawWeather);
+    context.weather = weather;
   }else{
      context.missingLocation = true;
      //delete context.forecastResult;
   }
 
   return {
-    weather,
+    
     ...context
   };
 }
