@@ -9,6 +9,7 @@ function formatWeather(rawWeather) {
 }
 
 export default async function getWeather({ context, entities }) {
+  console.log('suggesed location ------------', entities.location)
   const suggestedLocation = entities.location.find(location => location);
 
   delete context.missingLocation;

@@ -18,6 +18,7 @@ function formatWeather(rawWeather) {
 
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* ({ context, entities }) {
+    console.log('suggesed location ------------', entities.location);
     const suggestedLocation = entities.location.find(function (location) {
       return location;
     });
