@@ -19,13 +19,18 @@ function formatWeather(rawWeather) {
 exports.default = (() => {
   var _ref = _asyncToGenerator(function* ({ context, entities }) {
     const suggestedLocation = entities.location.find(function (location) {
-      return location.suggested;
+      return location;
     });
 
+    delete context.missingLocation;
     let weather;
+    console.log('suggesed location ------------', suggestedLocation);
     if (suggestedLocation) {
       const rawWeather = yield (0, _weather.fetchWeather)(suggestedLocation.value);
       weather = formatWeather(rawWeather);
+    } else {
+      context.missingLocation = true;
+      //delete context.forecastResult;
     }
 
     return Object.assign({
